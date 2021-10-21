@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-typescript-plus",
-  "description": "A starter kit for TypeScript-based Gatsby projects with sensible defaults.",
+  "name": "zatoustory.tw",
+  "description": "The official website of \"Zatou Story\", a VTuber group from Taiwan.",
   "version": "1.0.0",
-  "private": true,
-  "author": "Resi Respati <resir014@gmail.com>",
+  "author": "miksin <contact@miksin.art>",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "website"
   ],
   "license": "MIT",
   "main": "n/a",
@@ -13,7 +13,7 @@
     "build": "gatsby build",
     "clean": "rimraf public",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop -p 5000",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "start": "npm run dev",

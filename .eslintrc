@@ -22,6 +22,7 @@
       {
         "forbid": [{ "char": ">", "alternatives": ["&gt;"] }, { "char": "}", "alternatives": ["&#125;"] }]
       }
-    ]
+    ],
+    "react/require-default-props": "off"
   }
 }

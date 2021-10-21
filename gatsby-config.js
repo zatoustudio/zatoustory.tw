@@ -1,15 +1,13 @@
-'use strict'
-
 module.exports = {
   siteMetadata: {
-    title: 'gatsby-starter-typescript-plus',
-    description: 'A starter kit for TypeScript-based Gatsby projects with sensible defaults.',
-    keywords: 'gatsbyjs, gatsby, javascript, sample, something',
-    siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
+    title: 'zatoustory.tw',
+    description: `The official website of "Zatou Story", a VTuber group from Taiwan.`,
+    keywords: 'gatsbyjs, gatsby, javascript, vtuber, zatoustory',
+    siteUrl: 'https://zatoustory.tw',
     author: {
-      name: 'Resi Respati',
-      url: 'https://twitter.com/resir014',
-      email: 'resir014@gmail.com'
+      name: 'zatoustudio',
+      url: 'https://twitter.com/zatou_studio',
+      email: 'zatou_studio@zatoustory.tw'
     }
   },
   plugins: [

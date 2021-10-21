@@ -1,5 +1,3 @@
-'use strict'
-
 const path = require('path')
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -34,7 +32,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         name: 'layout',
         value: layout || ''
       })
+      break
     }
+    default:
+      break
   }
 }
 
