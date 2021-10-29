@@ -8,6 +8,7 @@ import '../styles/normalize'
 import Header from '../components/Header'
 import LayoutRoot from '../components/LayoutRoot'
 import LayoutMain from '../components/LayoutMain'
+import { ScreenSizeProvider } from '../contexts/sizes'
 
 interface StaticQueryProps {
   site: {
@@ -19,32 +20,36 @@ interface StaticQueryProps {
   }
 }
 
-const IndexLayout: React.FC = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query IndexLayoutQuery {
-        site {
-          siteMetadata {
-            title
-            description
+const IndexLayout: React.FC = ({ children }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query IndexLayoutQuery {
+          site {
+            siteMetadata {
+              title
+              description
+            }
           }
         }
-      }
-    `}
-    render={(data: StaticQueryProps) => (
-      <LayoutRoot>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
-            { name: 'keywords', content: data.site.siteMetadata.keywords },
-          ]}
-        />
-        <Header title={data.site.siteMetadata.title} />
-        <LayoutMain>{children}</LayoutMain>
-      </LayoutRoot>
-    )}
-  />
-)
+      `}
+      render={(data: StaticQueryProps) => (
+        <ScreenSizeProvider>
+          <LayoutRoot>
+            <Helmet
+              title={data.site.siteMetadata.title}
+              meta={[
+                { name: 'description', content: data.site.siteMetadata.description },
+                { name: 'keywords', content: data.site.siteMetadata.keywords },
+              ]}
+            />
+            <Header title={data.site.siteMetadata.title} />
+            <LayoutMain>{children}</LayoutMain>
+          </LayoutRoot>
+        </ScreenSizeProvider>
+      )}
+    />
+  )
+}
 
 export default IndexLayout
