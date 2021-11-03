@@ -63,3 +63,9 @@ export const dimensions = {
 export const heights = {
   header: 60,
 }
+
+export const zIndex = {
+  Header: 950,
+} as const
+
+export const scrollDelay = 1000

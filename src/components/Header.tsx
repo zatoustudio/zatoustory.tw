@@ -3,14 +3,22 @@ import styled from '@emotion/styled'
 import { transparentize } from 'polished'
 import { Link } from 'gatsby'
 
-import { heights, dimensions, colors } from '../styles/variables'
+import { heights, dimensions, colors, zIndex } from '../styles/variables'
 import Container from './Container'
+import { Colors } from '../styles/colors'
 
 const StyledHeader = styled.header`
+  position: fixed;
+  z-index: ${zIndex.Header};
+
+  width: 100vw;
   height: ${heights.header}px;
   padding: 0 ${dimensions.containerPadding}rem;
-  background-color: ${colors.brand};
-  color: ${transparentize(0.5, colors.white)};
+  background-color: ${transparentize(0.7, Colors.White)};
+
+  &:hover {
+    background-color: ${Colors.White};
+  }
 `
 
 const HeaderInner = styled(Container)`
