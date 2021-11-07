@@ -1,6 +1,8 @@
 import * as React from 'react'
+import ReactDOM from 'react-dom'
 import styled from '@emotion/styled'
 import { ChevronDown } from 'react-feather'
+import { isMobile } from 'react-device-detect'
 
 const ScrollNavigator = styled.i`
   position: fixed;
@@ -20,7 +22,7 @@ const StyledContainer = styled.div``
 export const PageContainer: React.FC = ({ children, ...props }) => {
   /** reset to top */
   React.useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0 })
   }, [])
 
   const ref = React.createRef<HTMLDivElement>()
@@ -53,15 +55,20 @@ export const PageContainer: React.FC = ({ children, ...props }) => {
     }
   }
 
+  const portal = ReactDOM.createPortal(
+    <ScrollNavigator onClick={onNext}>
+      SCROLL
+      <ChevronDown size={36} />
+    </ScrollNavigator>,
+    document.body
+  )
+
   return (
     <>
       <StyledContainer {...props} ref={ref}>
         {children}
       </StyledContainer>
-      <ScrollNavigator onClick={onNext}>
-        SCROLL now:({page})
-        <ChevronDown size={36} />
-      </ScrollNavigator>
+      {!isMobile && portal}
     </>
   )
 }

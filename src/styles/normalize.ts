@@ -28,7 +28,7 @@ export default `
     -ms-text-size-adjust: 100%;
 
     &::-webkit-scrollbar {
-      // display: none;
+      display: none;
     }
   }
 
