@@ -51,8 +51,11 @@
     "prism-themes": "^1.1.0",
     "prismjs": "^1.23.0",
     "react": "^16.8.6",
+    "react-device-detect": "^2.1.2",
     "react-dom": "^16.8.6",
+    "react-feather": "^2.0.9",
     "react-helmet": "^5.2.1",
+    "react-visibility-sensor": "^5.1.1",
     "typescript": "^3.5.2"
   },
   "devDependencies": {
