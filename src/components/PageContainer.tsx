@@ -55,12 +55,11 @@ export const PageContainer: React.FC = ({ children, ...props }) => {
     }
   }
 
-  const portal = ReactDOM.createPortal(
+  const portal = (
     <ScrollNavigator onClick={onNext}>
       SCROLL
       <ChevronDown size={36} />
-    </ScrollNavigator>,
-    document.body
+    </ScrollNavigator>
   )
 
   return (
