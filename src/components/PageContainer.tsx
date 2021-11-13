@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import { isMobile } from 'react-device-detect'
 import { ScrollNavigator } from './global/ScrollNavigator'
 import { TopNavigator } from './global/TopNavigator'
+import { useScrollY } from '../contexts/scroll'
 
 const StyledContainer = styled.div``
 
@@ -17,34 +18,30 @@ export const PageContainer: React.FC = ({ children, ...props }) => {
   }, [])
 
   const ref = React.createRef<HTMLDivElement>()
-  const [page, setPage] = React.useState(0)
 
+  const [pageNum, setPageNum] = React.useState(0)
   React.useEffect(() => {
-    const handler = () => {
-      const pageNum = ref.current?.children.length ?? 0
-      let next = -1
-      for (let i = 0; i < pageNum; i += 1) {
-        const rect = ref.current?.children[i].getBoundingClientRect()
-        if (rect && rect.top > 0) {
-          next = i - 1
-          break
-        }
-      }
-      setPage(next >= 0 ? next : pageNum - 1)
+    setPageNum(ref.current?.children.length ?? 0)
+  }, [children])
+
+  const scrollY = useScrollY()
+  const [page, setPage] = React.useState(0)
+  React.useEffect(() => {
+    if (!ref.current) {
+      return
     }
 
-    window.addEventListener('scroll', handler, { passive: true })
-    return () => window.removeEventListener('scroll', handler)
-  }, [page])
-
-  const [canScroll, setCanScroll] = React.useState(true)
-  React.useEffect(() => {
-    const pageNum = ref.current?.children.length ?? 0
-    setCanScroll(pageNum - 1 > page)
-  }, [page])
+    for (let i = 0; i < pageNum; i += 1) {
+      const rect = ref.current.children[i].getBoundingClientRect()
+      const mid = (rect.top + rect.bottom) / 2
+      if (mid > 0) {
+        setPage(i)
+        break
+      }
+    }
+  }, [scrollY, pageNum])
 
   const onNext = () => {
-    const pageNum = ref.current?.children.length ?? 0
     const nextPage = Math.min(page + 1, pageNum - 1)
     const target = ref.current?.children[nextPage]
     if (nextPage !== page && target) {
@@ -57,7 +54,7 @@ export const PageContainer: React.FC = ({ children, ...props }) => {
       <StyledContainer {...props} ref={ref}>
         {children}
       </StyledContainer>
-      {!isMobile && <ScrollNavigator onClick={onNext} hide={!canScroll} />}
+      {!isMobile && <ScrollNavigator onClick={onNext} hide={page === pageNum - 1} />}
       {page > 0 && <TopNavigator onClick={toTop} />}
     </>
   )
