@@ -2,14 +2,24 @@ import * as React from 'react'
 import IndexLayout from '../layouts'
 import { ScreenSizeContainer } from '../components/ScreenSizeContainer'
 import { PageContainer } from '../components/PageContainer'
+import { Entry } from '../components/top/Entry'
+import { News } from '../components/top/News'
+import { About } from '../components/top/About'
+import { Colors } from '../styles/colors'
 
 const IndexPage = () => {
   return (
     <IndexLayout>
       <PageContainer>
-        <ScreenSizeContainer>Page 1</ScreenSizeContainer>
-        <ScreenSizeContainer>Page 2</ScreenSizeContainer>
-        <ScreenSizeContainer>Page 3</ScreenSizeContainer>
+        <ScreenSizeContainer>
+          <Entry />
+        </ScreenSizeContainer>
+        <ScreenSizeContainer background={Colors.Purple}>
+          <News />
+        </ScreenSizeContainer>
+        <ScreenSizeContainer>
+          <About />
+        </ScreenSizeContainer>
       </PageContainer>
     </IndexLayout>
   )

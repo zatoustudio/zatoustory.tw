@@ -1,25 +1,16 @@
 import * as React from 'react'
-import ReactDOM from 'react-dom'
 import styled from '@emotion/styled'
-import { ChevronDown } from 'react-feather'
 import { isMobile } from 'react-device-detect'
-
-const ScrollNavigator = styled.i`
-  position: fixed;
-  left: 50%;
-  bottom: 10px;
-  transform: translate(-50%, 0);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  cursor: pointer;
-`
+import { ScrollNavigator } from './global/ScrollNavigator'
+import { TopNavigator } from './global/TopNavigator'
 
 const StyledContainer = styled.div``
 
 export const PageContainer: React.FC = ({ children, ...props }) => {
+  const toTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   /** reset to top */
   React.useEffect(() => {
     window.scrollTo({ top: 0 })
@@ -46,6 +37,12 @@ export const PageContainer: React.FC = ({ children, ...props }) => {
     return () => window.removeEventListener('scroll', handler)
   }, [page])
 
+  const [canScroll, setCanScroll] = React.useState(true)
+  React.useEffect(() => {
+    const pageNum = ref.current?.children.length ?? 0
+    setCanScroll(pageNum - 1 > page)
+  }, [page])
+
   const onNext = () => {
     const pageNum = ref.current?.children.length ?? 0
     const nextPage = Math.min(page + 1, pageNum - 1)
@@ -55,19 +52,13 @@ export const PageContainer: React.FC = ({ children, ...props }) => {
     }
   }
 
-  const portal = (
-    <ScrollNavigator onClick={onNext}>
-      SCROLL
-      <ChevronDown size={36} />
-    </ScrollNavigator>
-  )
-
   return (
     <>
       <StyledContainer {...props} ref={ref}>
         {children}
       </StyledContainer>
-      {!isMobile && portal}
+      {!isMobile && <ScrollNavigator onClick={onNext} hide={!canScroll} />}
+      {page > 0 && <TopNavigator onClick={toTop} />}
     </>
   )
 }

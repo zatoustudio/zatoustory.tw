@@ -23,7 +23,7 @@ export const colors = {
 
 export const fonts = {
   sansSerif:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif',
+    '"Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif',
   serif: 'Georgia, "Times New Roman", Times, serif',
   monospace: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, monospace',
 }
@@ -69,3 +69,9 @@ export const zIndex = {
 } as const
 
 export const scrollDelay = 1000
+
+export const socialLinks = {
+  twitter: 'https://twitter.com/zatou_studio',
+  youtube: '#',
+  facebook: 'https://www.facebook.com/zatoustory',
+}

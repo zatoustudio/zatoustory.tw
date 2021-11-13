@@ -42,8 +42,15 @@ const IndexLayout: React.FC = ({ children }) => {
                 { name: 'description', content: data.site.siteMetadata.description },
                 { name: 'keywords', content: data.site.siteMetadata.keywords },
               ]}
+              link={[
+                { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'true' },
+                {
+                  rel: 'stylesheet',
+                  href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap',
+                },
+              ]}
             />
-            <Header title={data.site.siteMetadata.title} />
             <LayoutMain>{children}</LayoutMain>
           </LayoutRoot>
         </ScreenSizeProvider>

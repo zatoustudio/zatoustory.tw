@@ -33,6 +33,7 @@ const LayoutMain: React.FC<LayoutMainProps> = ({ children, className }) => (
         className={className}
         css={css`
           background: url(${data.file.publicURL});
+          background-attachment: fixed;
         `}
       >
         {children}
