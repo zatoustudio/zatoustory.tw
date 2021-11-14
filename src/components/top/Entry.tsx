@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import { AlertTriangle, Facebook, Twitter, Youtube } from 'react-feather'
+import { AlertTriangle, Facebook, Instagram, Twitter } from 'react-feather'
 import { Colors } from '../../styles/colors'
 import { socialLinks } from '../../styles/variables'
 import { AlternativeTitle } from '../AlternativeTitle'
@@ -68,8 +68,8 @@ export const Entry: React.FC = () => (
         <h1>Zatou Story</h1>
       </AlternativeTitle>
       <SocialLinks>
-        <a href={socialLinks.youtube} target="_blank" rel="noreferrer">
-          <Youtube size={24} />
+        <a href={socialLinks.instagram} target="_blank" rel="noreferrer">
+          <Instagram size={24} />
         </a>
         <a href={socialLinks.twitter} target="_blank" rel="noreferrer">
           <Twitter size={24} />

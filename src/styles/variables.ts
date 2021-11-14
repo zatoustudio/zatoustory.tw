@@ -72,6 +72,6 @@ export const scrollDelay = 1000
 
 export const socialLinks = {
   twitter: 'https://twitter.com/zatou_studio',
-  youtube: '#',
+  instagram: 'https://www.instagram.com/zatoustory',
   facebook: 'https://www.facebook.com/zatoustory',
 }
