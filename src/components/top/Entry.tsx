@@ -59,10 +59,15 @@ const SocialLinks = styled.div`
   }
 `
 
+const Img = styled.img<{ size: number }>`
+  width: ${p => p.size}px;
+  max-width: 100%;
+`
+
 export const Entry: React.FC = () => (
   <Bracket size={500}>
     <div>
-      <AlertTriangle size={120} />
+      <Img src="/logo.svg" alt="logo" size={120} />
       <AlternativeTitle>
         <h1>鯨魚島故事館</h1>
         <h1>Zatou Story</h1>
