@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: '/zatoustory.tw', // FIXME: remove after setup domain
   siteMetadata: {
     title: 'zatoustory.tw',
     description: `The official website of "Zatou Story", a VTuber group from Taiwan.`,
