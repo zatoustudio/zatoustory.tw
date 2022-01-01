@@ -42,6 +42,7 @@ const IndexLayout: React.FC = ({ children }) => {
                 title={data.site.siteMetadata.title}
                 meta={[
                   { name: 'description', content: data.site.siteMetadata.description },
+                  { name: 'og:description', content: data.site.siteMetadata.description },
                   { name: 'keywords', content: data.site.siteMetadata.keywords },
                 ]}
                 link={[
@@ -50,6 +51,14 @@ const IndexLayout: React.FC = ({ children }) => {
                   {
                     rel: 'stylesheet',
                     href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap',
+                  },
+                  {
+                    rel: 'shortcut icon',
+                    href: '/favicon.ico',
+                  },
+                  {
+                    rel: 'bookmark',
+                    href: '/favicon.ico',
                   },
                 ]}
               />

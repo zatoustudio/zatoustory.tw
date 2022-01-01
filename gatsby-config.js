@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'zatoustory.tw',
+    title: '鯨魚島故事館',
     description: `The official website of "Zatou Story", a VTuber group from Taiwan.`,
-    keywords: 'gatsbyjs, gatsby, javascript, vtuber, zatoustory',
+    keywords: 'gatsbyjs, gatsby, javascript, vtuber, zatoustory, 鯨魚島故事館',
     siteUrl: 'https://zatoustory.tw',
     author: {
       name: 'zatoustudio',
